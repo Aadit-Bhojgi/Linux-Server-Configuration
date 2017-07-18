@@ -29,10 +29,10 @@ grader ALL=(ALL) NOPASSWD: ALL
 
 ###### Allowing grader to login via generated Public Key
 
-When connected as root on server. You will need the **Private Key** to log in, which you can find on this page of the **Lightsail website.**<br>
-First login on your AWS account ang go to the following link:<br>
-<a href="https://lightsail.aws.amazon.com/ls/webapp/account/keys">https://lightsail.aws.amazon.com/ls/webapp/account/keys</a><br>
-Now under **SSH key pairs** select default option and then download the **Private Key** on your system.<br>
+* When connected as root on server. You will need the **Private Key** to log in, which you can find on this page of the **Lightsail website.**
+* First login on your AWS account ang go to the following link:<br>
+<a href="https://lightsail.aws.amazon.com/ls/webapp/account/keys">https://lightsail.aws.amazon.com/ls/webapp/account/keys</a>
+* Now under **SSH key pairs** select default option and then download the **Private Key** on your system.
 **Public Key** will be automatically uploaded on your cloud server, to view your Public Key run the following command on your cloud server:
 ```
 cat /.ssh/authorized_keys
@@ -194,5 +194,5 @@ grader@ip-address:~$ sudo a2ensite FlaskApp.conf
 grader@ip-address:~$ sudo service apache2 restart
 ```
 #### NOTE
->**For deploying your Flask Application on the server refer the following link:
-<a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps">Deploying your FlaskApp</a>**
+>For deploying your Flask Application on the server refer the following link:
+**<a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps">Deploying your FlaskApp</a>**
