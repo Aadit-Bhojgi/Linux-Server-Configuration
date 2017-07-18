@@ -17,9 +17,11 @@
 
 ###### Connect as root on server and then Creating the new user grader and giving sudo access
 
-`$ sudo adduser grader`<br>
-`$ sudo touch /etc/sudoers.d/grader`<br>
-`$ sudo nano /etc/sudoer.d/grader`<br>
+```
+$ sudo adduser grader
+$ sudo touch /etc/sudoers.d/grader
+$ sudo nano /etc/sudoer.d/grader
+```
 Now, In this file, write and save the following:<br>
 ```
 grader ALL=(ALL) NOPASSWD: ALL
@@ -45,23 +47,29 @@ cat /.ssh/authorized_keys
 ###### Updating the server with most recent softwares
 
 * Run the following commands<br>
-` grader@ip-address:~$ sudo apt-get update`<br>
-` grader@ip-address:~$ sudo apt-get upgrade`
+```
+grader@ip-address:~$ sudo apt-get update`
+grader@ip-address:~$ sudo apt-get upgrade`
+```
 
 ###### Disabling `Root login`, Enforcing `key-based authentication` and changing `SSH port`
 
-* Run the following commands:<br>
-` grader@ip-address:~$ sudo nano /etc/ssh/sshd_config`<br>
+* Run the following commands:
+```
+grader@ip-address:~$ sudo nano /etc/ssh/sshd_config
+```
 * Find **PermitRootLogin** line and append it with **no**<br>
 * Find the **PasswordAuthentication** line and append it with **no**<br>
 * Find the **Port** line and change **22** to **2200**<br>
 * Restart **SSH** service using:<br>
-` grader@ip-address:~$ sudo service ssh restart`
+```
+grader@ip-address:~$ sudo service ssh restart
+```
 
 ###### Configuring local timezone to UTC
 
 ```
-$ sudo timedatectl set-timezone UTC
+grader@ip-address:~$ sudo timedatectl set-timezone UTC
 ```
 
 ###### Configuring `UFW(Uncomplicated Fire Wall)`
