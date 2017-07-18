@@ -50,19 +50,19 @@ cat /.ssh/authorized_keys
 
 ###### Disabling `Root login`, Enforcing `key-based authentication` and changing `SSH port`
 
-* Run the following commands<br>
+* Run the following commands:<br>
 ` grader@ip-address:~$ sudo nano /etc/ssh/sshd_config`<br>
 * Find **PermitRootLogin** line and append it with **no**<br>
 * Find the **PasswordAuthentication** line and append it with **no**<br>
 * Find the **Port** line and change **22** to **2200**<br>
-* Restart **SSH** service using <br>
+* Restart **SSH** service using:<br>
 ` grader@ip-address:~$ sudo service ssh restart`
 
 ###### Configuring local timezone to UTC
 
 `$ sudo timedatectl set-timezone UTC`
 
-###### Configuring `UFW(Ubuntu Fire Wall)`
+###### Configuring `UFW(Uncomplicated Fire Wall)`
 
 ```
 $ sudo ufw default deny incoming
@@ -71,4 +71,12 @@ $ sudo ufw allow 2200/tcp
 $ sudo ufw allow 80/tcp
 $ sudo ufw allow 123/udp
 $ sudo ufw enable
+```
+
+###### Install and Enable mod_wsgi
+WSGI (Web Server Gateway Interface) is an interface between web servers and web apps for python. Mod_wsgi is an Apache HTTP server mod that enables Apache to serve Flask applications.
+
+Open terminal and type the following command to install mod_wsgi:
+```
+grader@ip-address:~$ sudo apt-get install libapache2-mod-wsgi python-dev
 ```
