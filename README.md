@@ -130,3 +130,7 @@ source flask-env/bin/activate
 (flask-env)grader@ip-address:~$ sudo pip install flask
 (flask-env)grader@ip-address:~$ sudo pip install oauth2client sqlalchemy psycopg2 requests
 ```
+* Finally deactivate your virtual environment:
+```
+(flask-env)grader@ip-address:~$ deactivate
+```
