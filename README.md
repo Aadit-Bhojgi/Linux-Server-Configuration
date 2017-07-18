@@ -30,7 +30,7 @@ grader ALL=(ALL) NOPASSWD: ALL
 ###### Allowing grader to login via generated Public Key
 
 * When connected as root on server. You will need the **Private Key** to log in, which you can find on this page of the **Lightsail website.**
-* First login on your AWS account ang go to the following link:<br>
+* First login on your AWS account ang go to the following link:
 <a href="https://lightsail.aws.amazon.com/ls/webapp/account/keys">https://lightsail.aws.amazon.com/ls/webapp/account/keys</a>
 * Now under **SSH key pairs** select default option and then download the **Private Key** on your system.
 **Public Key** will be automatically uploaded on your cloud server, to view your Public Key run the following command on your cloud server:
@@ -158,6 +158,8 @@ grader@ip-address:/var/www/FlaskApp/ python catalog_items.py
 Nice, Database Populated!
 ```
 ###### Configure and Enable a New Virtual Host
+
+* Create New Configuration file `FlaskApp.conf`:
 ```
 grader@ip-address:~$ sudo nano /etc/apache2/sites-available/FlaskApp.conf
 ```
