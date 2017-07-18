@@ -20,6 +20,6 @@
 * Then open CLI(GIT Bash: recommended) in your system and run the following command<br>
 ```$ ssh grader@ip-address -p 2200 -i Private-Key.pub```
 ###### Updating the server with most recent softwares
-* Run the following commands
-` grader@ip-address:~$ sudo apt-get update`
+* Run the following commands<br>
+` grader@ip-address:~$ sudo apt-get update`<br>
 ` grader@ip-address:~$ sudo apt-get upgrade`
