@@ -27,10 +27,10 @@ grader ALL=(ALL) NOPASSWD: ALL
 
 ###### Allowing grader to login via generated Public Key
 
-When connected as root on server. You will need the **Private Key** to log in, which you can find on this page of the **Lightsail website**<br>
+When connected as root on server.You will need the **Private Key** to log in, which you can find on this page of the **Lightsail website.**<br>
 First login on your AWS account ang go to the following link:<br>
 <a href="https://lightsail.aws.amazon.com/ls/webapp/account/keys">https://lightsail.aws.amazon.com/ls/webapp/account/keys</a><br>
-Now under **SSH key pairs** select default option and then download the **Private Key** on you system.<br>
+Now under **SSH key pairs** select default option and then download the **Private Key** on your system.<br>
 **Public Key** will be automatically uploaded on your cloud server, to view your Public Key run the following command on your cloud server:
 ```
 cat /.ssh/authorized_keys
