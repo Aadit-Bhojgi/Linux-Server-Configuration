@@ -4,7 +4,7 @@
 
 >This project includes setting up the Linux Server, configuring database and then deploying Item Catalog Application on it and securing it with any      possible security threats.
 
-* **Public IP ADRESS**: `13.126.30.40`
+* **Public IP Address**: `13.126.30.40`
 * The cloud server is on <a href="https://amazonlightsail.com/">**Amazon Lightsail**</a>, Amazon Lightsail is the easiest way to launch and manage a virtual private server with AWS.
 * To view the deployed Application on the cloud server following is the URL to the website.<br>
   ### <a href="http://ec2-13-126-30-40.ap-south-1.compute.amazonaws.com/">http://ec2-13-126-30-40.ap-south-1.compute.amazonaws.com/</a>
@@ -38,7 +38,7 @@ cat /.ssh/authorized_keys
 
 ###### Connecting to the Cloud Server
 
-* Paste the content(Private Key) given in the reviewer notes in a `Private-Key.pub` file
+* Paste the content(**Private Key**) given in the reviewer notes in a `Private-Key.pub` file
 * Then open **CLI**(**GIT Bash**: recommended) in your system and run the following command<br>
 ```$ ssh grader@ip-address -p 2200 -i Private-Key.pub```
 
@@ -52,8 +52,8 @@ cat /.ssh/authorized_keys
 
 * Run the following commands<br>
 ` grader@ip-address:~$ sudo nano /etc/ssh/sshd_config`<br>
-Find **PermitRootLogin** line and append it with no<br>
-Find the **PasswordAuthentication** line and append it with no<br>
-Find the **Port** line and change 22 to 2200<br>
+Find **PermitRootLogin** line and append it with **no**<br>
+Find the **PasswordAuthentication** line and append it with **no**<br>
+Find the **Port** line and change **22** to **2200**<br>
 * Restart **SSH** service using <br>
 ` grader@ip-address:~$ sudo service ssh restart`
