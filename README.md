@@ -128,9 +128,71 @@ source flask-env/bin/activate
 * Now install the required modules:
 ```
 (flask-env)grader@ip-address:~$ sudo pip install flask
-(flask-env)grader@ip-address:~$ sudo pip install oauth2client sqlalchemy psycopg2 requests
+(flask-env)grader@ip-address:~$ sudo pip install oauth2client sqlalchemy psycopg2 requests logging
 ```
 * Finally deactivate your virtual environment:
 ```
 (flask-env)grader@ip-address:~$ deactivate
 ```
+###### Cloning Item-Catalog repository
+
+* Clone the `Item-Catalog `files from Git to `FlaskApp` directory `$ git clone https://github.com/Aadit-Bhojgi/new.git FlaskApp`
+* Change the directory to FlaskApp `cd FlaskApp/`
+* Create WSGI file
+```
+$ touch flaskapp.wsgi && nano flaskapp.wsgi
+```
+```
+import sys
+import logging
+logging.basicConfig(stream=sys.stderr)
+sys.path.insert(0, "/var/www/FlaskApp/")
+
+from catalog import app as application
+application.secret_key = 'Secret Key'
+```
+###### Setting up the database
+```
+grader@ip-address:~$ cd /var/www/FlaskApp/ & python sports_database.py
+grader@ip-address:/var/www/FlaskApp/ python catalog_items.py
+Nice, Database Populated!
+```
+###### Configure and Enable a New Virtual Host
+```
+grader@ip-address:~$ sudo nano /etc/apache2/sites-available/FlaskApp.conf
+```
+* Disable the default configuration:
+```
+grader@ip-address:~$ sudo a2dissite 000-default.conf
+```
+* Add the following lines of code to the file to configure the virtual host. Be sure to change the ServerName to your domain or cloud server's IP address:
+```
+<VirtualHost *:80>
+		ServerName 13.126.30.40
+		ServerAdmin aaditbhojgi@gmail.com
+		WSGIScriptAlias / /var/www/FlaskApp/flaskapp.wsgi
+		<Directory /var/www/FlaskApp/>
+			Order allow,deny
+			Allow from all
+		</Directory>
+		Alias /static /var/www/FlaskApp/static
+		<Directory /var/www/FlaskApp/static/>
+			Order allow,deny
+			Allow from all
+		</Directory>
+		ErrorLog ${APACHE_LOG_DIR}/error.log
+		LogLevel warn
+		CustomLog ${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>
+```
+* Then enable your Item-catalog web site configuration with the command:
+```
+grader@ip-address:~$ sudo a2ensite FlaskApp.conf
+```
+###### Restart Apache to launch
+```
+grader@ip-address:~$ sudo service apache2 restart
+```
+#### NOTE
+>**For deploying your Flask Application on the server refer the following link:
+<a href="https://www.digitalocean.com/community/tutorials/how-to-deploy-a-flask-application-on-an-ubuntu-vps">Deploying your FlaskApp</a>**
