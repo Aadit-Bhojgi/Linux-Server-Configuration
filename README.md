@@ -1,6 +1,7 @@
 # Linux Server Configuration
 
-### Overview
+### Project Overview
+
 >This project includes setting up the Linux Server, configuring database and then deploying Item Catalog Application on it and securing it with any      possible security threats.
 
 * Public IP ADRESS: `13.126.30.40`
@@ -13,7 +14,11 @@
 <a href="http://www.nmonitoring.com/ip-to-domain-name.html?ip=13.126.30.40&pingsub=1&ln=en">Convert your IP</a>
 
 ### Project Execution
+
 ###### Connecting to the Cloud Server
-* Paste the content given in the notes in a Private-Key.pub file
-* Then open CLI(GIT Bash: recommanded) in your system and run the following command<br>
+* Paste the content given in the reviewer notes in a Private-Key.pub file
+* Then open CLI(GIT Bash: recommended) in your system and run the following command<br>
 ```$ ssh grader@ip-address -p 2200 -i Private-Key.pub```
+###### Updating the server with most recent softwares
+* sudo apt-get update
+* sudo apt-get upgrade
