@@ -115,17 +115,17 @@ itemcatalog_database=# GRANT ALL ON SCHEMA public TO catalog;
 ```
 ###### Install Item Catalog App dependencies
 
-Install Python and virtual environment:
+* Install **Python** and **Virtual Environment**:
 ```
 grader@ip-address:~$ sudo apt-get install python-pip
 grader@ip-address:~$ sudo apt-get install python-virtualenv
 ```
-To create virtual Environment to install python modules run the following commands and activate virtual env:
+* To create virtual Environment to install python modules run the following commands and activate virtual environment:
 ```
 sudo virtualenv flask-env
 source flask-env/bin/activate
 ```
-Now install the required modules:
+* Now install the required modules:
 ```
 (flask-env)grader@ip-address:~$ sudo pip install flask
 (flask-env)grader@ip-address:~$ sudo pip install oauth2client sqlalchemy psycopg2 requests
