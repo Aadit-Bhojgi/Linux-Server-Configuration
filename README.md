@@ -25,7 +25,7 @@ Now, In this file, write and save the following:<br>
 grader ALL=(ALL) NOPASSWD: ALL
 ```
 
-###### Allowing grader to login via generated public key
+###### Allowing grader to login via generated Public Key
 
 When connected as root on server. You will need the **Private Key** to log in, which you can find on this page of the **Lightsail website**<br>
 First login on your AWS account ang go to the following link:<br>
@@ -48,12 +48,12 @@ cat /.ssh/authorized_keys
 ` grader@ip-address:~$ sudo apt-get update`<br>
 ` grader@ip-address:~$ sudo apt-get upgrade`
 
-###### Disabling `Root login`, `Enforce key-based authentication` and changing `SSH port`
+###### Disabling `Root login`, Enforcing `key-based authentication` and changing `SSH port`
 
 * Run the following commands<br>
 ` grader@ip-address:~$ sudo nano /etc/ssh/sshd_config`<br>
- * Find **PermitRootLogin** line and append it with **no**<br>
- * Find the **PasswordAuthentication** line and append it with **no**<br>
- * Find the **Port** line and change **22** to **2200**<br>
+* Find **PermitRootLogin** line and append it with **no**<br>
+* Find the **PasswordAuthentication** line and append it with **no**<br>
+* Find the **Port** line and change **22** to **2200**<br>
 * Restart **SSH** service using <br>
 ` grader@ip-address:~$ sudo service ssh restart`
