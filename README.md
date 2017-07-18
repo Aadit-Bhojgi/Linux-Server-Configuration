@@ -27,7 +27,7 @@ grader ALL=(ALL) NOPASSWD: ALL
 
 ###### Allowing grader to login via generated Public Key
 
-When connected as root on server.You will need the **Private Key** to log in, which you can find on this page of the **Lightsail website.**<br>
+When connected as root on server. You will need the **Private Key** to log in, which you can find on this page of the **Lightsail website.**<br>
 First login on your AWS account ang go to the following link:<br>
 <a href="https://lightsail.aws.amazon.com/ls/webapp/account/keys">https://lightsail.aws.amazon.com/ls/webapp/account/keys</a><br>
 Now under **SSH key pairs** select default option and then download the **Private Key** on your system.<br>
@@ -57,3 +57,18 @@ cat /.ssh/authorized_keys
 * Find the **Port** line and change **22** to **2200**<br>
 * Restart **SSH** service using <br>
 ` grader@ip-address:~$ sudo service ssh restart`
+
+###### Configuring local timezone to UTC
+
+`$ sudo timedatectl set-timezone UTC`
+
+###### Configuring `UFW(Ubuntu Fire Wall)`
+
+```
+$ sudo ufw default deny incoming
+$ sudo ufw default allow outgoing
+$ sudo ufw allow 2200/tcp
+$ sudo ufw allow 80/tcp
+$ sudo ufw allow 123/udp
+$ sudo ufw enable
+```
