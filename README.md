@@ -48,8 +48,8 @@ cat /.ssh/authorized_keys
 
 * Run the following commands<br>
 ```
-grader@ip-address:~$ sudo apt-get update`
-grader@ip-address:~$ sudo apt-get upgrade`
+grader@ip-address:~$ sudo apt-get update
+grader@ip-address:~$ sudo apt-get upgrade
 ```
 
 ###### Disabling `Root login`, Enforcing `key-based authentication` and changing `SSH port`
@@ -86,7 +86,47 @@ $ sudo ufw enable
 ###### Install and Enable mod_wsgi
 **WSGI** (Web Server Gateway Interface) is an interface between web servers and web apps for python. **Mod_wsgi** is an **Apache HTTP server mod** that enables Apache to serve **Flask applications**.
 
-Open terminal and type the following command to install **mod_wsgi**:
+Open terminal and type the following command to install mod_wsgi:
 ```
 grader@ip-address:~$ sudo apt-get install libapache2-mod-wsgi python-dev
+```
+To enable mod_wsgi, run the following command:
+```
+grader@ip-address:~$ sudo a2enmod wsgi 
+```
+###### Install and Configure PostgreSQL
+
+* Install the required packages
+```
+  grader@ip-address:~$ sudo apt-get install postgresql postgresql-contrib libpq-dev python-dev
+```
+* Login as postgres User(Default user), and get into psql shell
+```
+grader@ip-address:~$ sudo su postgres
+postgres@ip-address:~$ psql
+```
+* Create new User named catalog `CREATE USER catalog WITH PASSWORD 'heisenberg';`
+* Create a new Database itemcatalog_database `CREATE DATABASE itemcatalog_database WITH OWNER catalog;`
+* Connect to the Database `\c itemcatalog_database`
+* Revoke all rights from public, and allow only catalog to perform transactions
+```
+itemcatalog_database=# REVOKE ALL ON SCHEMA public FROM public;
+itemcatalog_database=# GRANT ALL ON SCHEMA public TO catalog;
+```
+###### Install Item Catalog App dependencies
+
+Install Python and virtual environment:
+```
+grader@ip-address:~$ sudo apt-get install python-pip
+grader@ip-address:~$ sudo apt-get install python-virtualenv
+```
+To create virtual Environment to install python modules run the following commands and activate virtual env:
+```
+sudo virtualenv flask-env
+source flask-env/bin/activate
+```
+Now install the required modules:
+```
+(flask-env)grader@ip-address:~$ sudo pip install flask
+(flask-env)grader@ip-address:~$ sudo pip install oauth2client sqlalchemy psycopg2 requests
 ```
