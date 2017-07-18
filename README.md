@@ -60,7 +60,9 @@ cat /.ssh/authorized_keys
 
 ###### Configuring local timezone to UTC
 
-`$ sudo timedatectl set-timezone UTC`
+```
+$ sudo timedatectl set-timezone UTC
+```
 
 ###### Configuring `UFW(Uncomplicated Fire Wall)`
 
@@ -74,9 +76,9 @@ $ sudo ufw enable
 ```
 
 ###### Install and Enable mod_wsgi
-WSGI (Web Server Gateway Interface) is an interface between web servers and web apps for python. Mod_wsgi is an Apache HTTP server mod that enables Apache to serve Flask applications.
+**WSGI** (Web Server Gateway Interface) is an interface between web servers and web apps for python. **Mod_wsgi** is an **Apache HTTP server mod** that enables Apache to serve **Flask applications**.
 
-Open terminal and type the following command to install mod_wsgi:
+Open terminal and type the following command to install **mod_wsgi**:
 ```
 grader@ip-address:~$ sudo apt-get install libapache2-mod-wsgi python-dev
 ```
