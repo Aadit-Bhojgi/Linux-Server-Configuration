@@ -15,5 +15,5 @@
 ### Project Execution
 ###### Connecting to the Cloud Server
 * Paste the content given in the notes in a Private-Key.pub file
-* Then open CLI in your system and run the following command<br>
+* Then open CLI(GIT Bash: recommanded) in your system and run the following command<br>
 ```$ ssh grader@ip-address -p 2200 -i Private-Key.pub```
