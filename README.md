@@ -10,7 +10,7 @@
   ### <a href="http://ec2-13-126-30-40.ap-south-1.compute.amazonaws.com/">http://ec2-13-126-30-40.ap-south-1.compute.amazonaws.com/</a>
   
 #### NOTE
->The above given domain name is converted on the given below link through the Public IP ADDRESS.<br>
+>The above given domain name is converted on the given below link through the Public IP Address<br>
 <a href="http://www.nmonitoring.com/ip-to-domain-name.html?ip=13.126.30.40&pingsub=1&ln=en">Convert your IP</a>
 
 ### Project Execution
@@ -159,13 +159,13 @@ Nice, Database Populated!
 ```
 ###### Configure and Enable a New Virtual Host
 
-* Create New Configuration file `FlaskApp.conf`:
-```
-grader@ip-address:~$ sudo nano /etc/apache2/sites-available/FlaskApp.conf
-```
 * Disable the default configuration:
 ```
 grader@ip-address:~$ sudo a2dissite 000-default.conf
+```
+* Create New Configuration file `FlaskApp.conf`:
+```
+grader@ip-address:~$ sudo nano /etc/apache2/sites-available/FlaskApp.conf
 ```
 * Add the following lines of code to the file to configure the virtual host. Be sure to change the ServerName to your domain or cloud server's IP address:
 ```
