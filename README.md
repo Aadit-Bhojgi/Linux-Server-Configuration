@@ -161,7 +161,7 @@ Nice, Database Populated!
 
 * Disable the default configuration:
 ```
-grader@ip-address:~$ sudo a2dissite 000-default.conf
+grader@ip-address:~$ sudo a2dissite /etc/apache2/sites-available/000-default.conf
 ```
 * Create New Configuration file `FlaskApp.conf`:
 ```
